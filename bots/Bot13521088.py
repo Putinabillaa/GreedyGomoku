@@ -66,7 +66,7 @@ class Bot13521088(object):
             -> 1 artinya sudah diisi player 1
             -> 2 artinya sudah diisi player 2
 
-            TODO: Tentukan x,y secara greedy. Kembalian adalah sebuah string "x,y"
+            x,y ditentukan secara greedy. Kembalian adalah sebuah string "x,y"
         """
         defense = assign_val(board, 1)
         defense_maxval = max(defense.values())
@@ -76,7 +76,7 @@ class Bot13521088(object):
         offense_maxval = max(offense.values())
         offense_maxval_list = [k for k, v in offense.items() if v == offense_maxval]
         
-        print(defense_maxval, offense_maxval)
+        # print(defense_maxval, offense_maxval)
         # print(defense,"\n", offense)
         if defense_maxval > offense_maxval:
             idx = len(defense_maxval_list)//2
@@ -97,18 +97,18 @@ def assign_val(board: Board, defense):
     straight_four, four_in_a_row, broken_four, open_three_in_a_row, open_broken_three, closed_three_in_a_row, \
     closed_broken_three, open_broken_three, open_two_in_a_row, closed_two_in_a_row, \
     open_broken_two, closed_broken_two, open_single, closed_single = find_threats(board, defense)
-    print("straight four:", straight_four)
-    print("four in a row:", four_in_a_row)
-    print("broken four:", broken_four)
-    print("open three in a row:", open_three_in_a_row)
-    print("open broken three:", open_broken_three)
-    print("closed three in a row:", closed_three_in_a_row)
-    print("closed broken three:", closed_broken_three)
-    print("open two in a row:", open_two_in_a_row)
-    print("closed two in a row:", closed_two_in_a_row)
-    print("broken two:", open_broken_two, closed_broken_two)
-    print("open single:", open_single)
-    print("closed single:", closed_single)
+    # print("straight four:", straight_four)
+    # print("four in a row:", four_in_a_row)
+    # print("broken four:", broken_four)
+    # print("open three in a row:", open_three_in_a_row)
+    # print("open broken three:", open_broken_three)
+    # print("closed three in a row:", closed_three_in_a_row)
+    # print("closed broken three:", closed_broken_three)
+    # print("open two in a row:", open_two_in_a_row)
+    # print("closed two in a row:", closed_two_in_a_row)
+    # print("broken two:", open_broken_two, closed_broken_two)
+    # print("open single:", open_single)
+    # print("closed single:", closed_single)
     for i in range (board.height):
         for j in range (board.width):
             if (i, j) in straight_four:
