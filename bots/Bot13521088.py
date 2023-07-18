@@ -79,13 +79,19 @@ class Bot13521088(object):
         print(defense_maxval, offense_maxval)
         # print(defense,"\n", offense)
         if defense_maxval > offense_maxval:
-            idx = len(defense_maxval_list)//2
-            (x, y) = defense_maxval_list[idx]
-            print(x)
-            print(y)
+            try:
+                idx = len(defense_maxval_list)//2
+                (x, y) = defense_maxval_list[idx]
+            except:
+                board.states.get(x * board.width + y) is not None
+                (x, y) = random.choice(board.availables)
         else:
-            idx = len(offense_maxval_list)//2
-            x, y = offense_maxval_list[idx]
+            try:
+                idx = len(offense_maxval_list)//2
+                x, y = offense_maxval_list[idx]
+            except:
+                board.states.get(x * board.width + y) is not None
+                (x, y) = random.choice(board.availables)
         return f"{x},{y}"
 
 def assign_val(board: Board, defense):
