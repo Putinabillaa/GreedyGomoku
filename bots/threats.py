@@ -203,18 +203,18 @@ def find_threats(board, defense):
                 if col + 2 < board.width:
                     if board.states.get(row * board.width + col + 1) == offense and \
                        board.states.get(row * board.width + col + 2) == offense:
-                        if col - 1 >= 0 and col + 3 < board.width and \
+                        if col - 1 >= 0 and col + 4 < board.width and \
                             board.states.get(row * board.width + col - 1) == defense and \
                             board.states.get(row * board.width + col + 3) is None:
                             closed_three_in_a_row.append((row, col + 3))
-                        elif col - 1 < 0 and col + 3 < board.width and \
+                        elif col - 1 < 0 and col + 4 < board.width and \
                             board.states.get(row * board.width + col + 3) is None:
                             closed_three_in_a_row.append((row, col + 3))
-                        elif col - 1 >= 0 and col + 3 < board.width and \
+                        elif col - 2 >= 0 and col + 3 < board.width and \
                             board.states.get(row * board.width + col - 1) is None and \
                             board.states.get(row * board.width + col + 3) == defense:
                             closed_three_in_a_row.append((row, col - 1))
-                        elif col - 1 >= 0 and col + 3 >= board.width and \
+                        elif col - 2 >= 0 and col + 3 >= board.width and \
                             board.states.get(row * board.width + col - 1) is None:
                             closed_three_in_a_row.append((row, col - 1))
                         elif board.states.get(row * board.width + col - 1) is None and \
@@ -226,18 +226,18 @@ def find_threats(board, defense):
                 if row + 2 < board.height:
                     if board.states.get((row + 1) * board.width + col) == offense and \
                        board.states.get((row + 2) * board.width + col) == offense:
-                        if row - 1 >= 0 and row + 3 < board.height and \
+                        if row - 1 >= 0 and row + 4 < board.height and \
                             board.states.get((row - 1) * board.width + col) == defense and \
                             board.states.get((row + 3) * board.width + col) is None:
                             closed_three_in_a_row.append((row + 3, col))
-                        elif row - 1 < 0 and row + 3 < board.height and \
+                        elif row - 1 < 0 and row + 4 < board.height and \
                             board.states.get((row + 3) * board.width + col) is None:
                             closed_three_in_a_row.append((row + 3, col))
-                        elif row - 1 >= 0 and row + 3 < board.height and \
+                        elif row - 2 >= 0 and row + 3 < board.height and \
                             board.states.get((row - 1) * board.width + col) is None and \
                             board.states.get((row + 3) * board.width + col) == defense:
                             closed_three_in_a_row.append((row - 1, col))
-                        elif row - 1 >= 0 and row + 3 >= board.height and \
+                        elif row - 2 >= 0 and row + 3 >= board.height and \
                             board.states.get((row - 1) * board.width + col) is None:
                             closed_three_in_a_row.append((row - 1, col))
                         elif row - 1 >= 0 and row + 3 < board.height and \
@@ -250,18 +250,18 @@ def find_threats(board, defense):
                 if col + 2 < board.width and row + 2 < board.height:
                     if board.states.get((row + 1) * board.width + col + 1) == offense and \
                        board.states.get((row + 2) * board.width + col + 2) == offense:
-                        if row - 1 >= 0 and col - 1 >= 0 and row + 3 < board.height and col + 3 < board.width and \
+                        if row - 1 >= 0 and col - 1 >= 0 and row + 4 < board.height and col + 4 < board.width and \
                             board.states.get((row - 1) * board.width + col - 1) == defense and \
                             board.states.get((row + 3) * board.width + col + 3) is None:
                             closed_three_in_a_row.append((row + 3, col + 3))
-                        elif (row - 1 < 0 or col - 1 < 0) and row + 3 < board.height and col + 3 < board.width and \
+                        elif (row - 1 < 0 or col - 1 < 0) and row + 4 < board.height and col + 4 < board.width and \
                             board.states.get((row + 3) * board.width + col + 3) is None:
                             closed_three_in_a_row.append((row + 3, col + 3))
-                        elif row - 1 >= 0 and col - 1 >= 0 and row + 3 < board.height and col + 3 < board.width and \
+                        elif row - 2 >= 0 and col - 2 >= 0 and row + 3 < board.height and col + 3 < board.width and \
                             board.states.get((row - 1) * board.width + col - 1) is None and \
                             board.states.get((row + 3) * board.width + col + 3) == defense:
                             closed_three_in_a_row.append((row - 1, col - 1))
-                        elif row - 1 >= 0 and col - 1 >= 0 and (row + 3 >= board.height or col + 3 >= board.width) and \
+                        elif row - 2 >= 0 and col - 2 >= 0 and (row + 3 >= board.height or col + 3 >= board.width) and \
                             board.states.get((row - 1) * board.width + col - 1) is None:
                             closed_three_in_a_row.append((row - 1, col - 1))
                         elif row - 1 >= 0 and col - 1 >= 0 and row + 3 < board.height and col + 3 < board.width and \
@@ -274,18 +274,18 @@ def find_threats(board, defense):
                 if col - 2 >= 0 and row + 2 < board.height:
                     if board.states.get((row + 1) * board.width + col - 1) == offense and \
                        board.states.get((row + 2) * board.width + col - 2) == offense:
-                        if row - 1 >= 0 and col + 1 < board.width and row + 3 < board.height and col - 3 >= 0 and \
+                        if row - 1 >= 0 and col + 1 < board.width and row + 4 < board.height and col - 4 >= 0 and \
                             board.states.get((row - 1) * board.width + col + 1) == defense and \
                             board.states.get((row + 3) * board.width + col - 3) is None:
                             closed_three_in_a_row.append((row + 3, col - 3))
-                        elif (row - 1 < 0 or col + 1 >= board.width) and row + 3 < board.height and col - 3 >= 0 and \
+                        elif (row - 1 < 0 or col + 1 >= board.width) and row + 4 < board.height and col - 4 >= 0 and \
                             board.states.get((row + 3) * board.width + col - 3) is None:
                             closed_three_in_a_row.append((row + 3, col - 3))
-                        elif row - 1 >= 0 and col + 1 < board.width and row + 3 < board.height and col - 3 >= 0 and \
+                        elif row - 2 >= 0 and col + 2 < board.width and row + 3 < board.height and col - 3 >= 0 and \
                             board.states.get((row - 1) * board.width + col + 1) is None and \
                             board.states.get((row + 3) * board.width + col - 3) == defense:
                             closed_three_in_a_row.append((row - 1, col + 1))
-                        elif row - 1 >= 0 and col + 1 < board.width and (row + 3 >= board.height or col - 3 < 0) and \
+                        elif row - 2 >= 0 and col + 2 < board.width and (row + 3 >= board.height or col - 3 < 0) and \
                             board.states.get((row - 1) * board.width + col + 1) is None:
                             closed_three_in_a_row.append((row - 1, col + 1))
                         elif row - 1 >= 0 and col + 1 < board.width and row + 3 < board.height and col - 3 >= 0 and \
@@ -528,18 +528,18 @@ def find_threats(board, defense):
                 # Horizontal
                 if col + 1 < board.width:
                     if board.states.get(row * board.width + col + 1) == offense:
-                        if col - 1 >= 0 and col + 2 < board.width and \
+                        if col - 1 >= 0 and col + 4 < board.width and \
                             board.states.get(row * board.width + col - 1) == defense and \
                             board.states.get(row * board.width + col + 2) is None:
                             closed_two_in_a_row.append((row, col + 2))
-                        elif col - 1 < 0 and col + 2 < board.width and \
+                        elif col - 1 < 0 and col + 4 < board.width and \
                             board.states.get(row * board.width + col + 2) is None:
                             closed_two_in_a_row.append((row, col + 2))
-                        elif col - 1 >= 0 and col + 2 < board.width and \
+                        elif col - 3 >= 0 and col + 2 < board.width and \
                             board.states.get(row * board.width + col - 1) is None and \
                             board.states.get(row * board.width + col + 2) == defense:
                             closed_two_in_a_row.append((row, col - 1))
-                        elif col - 1 >= 0 and col + 2 >= board.width and \
+                        elif col - 3 >= 0 and col + 2 >= board.width and \
                             board.states.get(row * board.width + col - 1) is None:
                             closed_two_in_a_row.append((row, col - 1))
                         elif col - 1 >= 0 and col + 2 < board.width and \
@@ -551,18 +551,18 @@ def find_threats(board, defense):
                 # Vertical
                 if row + 1 < board.height:
                     if board.states.get((row + 1) * board.width + col) == offense:
-                        if row - 1 >= 0 and row + 2 < board.height and \
+                        if row - 1 >= 0 and row + 4 < board.height and \
                             board.states.get((row - 1) * board.width + col) == defense and \
                             board.states.get((row + 2) * board.width + col) is None:
                             closed_two_in_a_row.append((row + 2, col))
-                        elif row - 1 < 0 and row + 2 < board.height and \
+                        elif row - 1 < 0 and row + 4 < board.height and \
                             board.states.get((row + 2) * board.width + col) is None:
                             closed_two_in_a_row.append((row + 2, col))
-                        elif row - 1 >= 0 and row + 2 < board.height and \
+                        elif row - 3 >= 0 and row + 2 < board.height and \
                             board.states.get((row - 1) * board.width + col) is None and \
                             board.states.get((row + 2) * board.width + col) == defense:
                             closed_two_in_a_row.append((row - 1, col))
-                        elif row - 1 >= 0 and row + 2 >= board.height and \
+                        elif row - 3 >= 0 and row + 2 >= board.height and \
                             board.states.get((row - 1) * board.width + col) is None:
                             closed_two_in_a_row.append((row - 1, col))
                         elif row - 1 >= 0 and row + 2 < board.height and \
@@ -574,18 +574,18 @@ def find_threats(board, defense):
                 # Down-right
                 if row + 1 < board.height and col + 1 < board.width:
                     if board.states.get((row + 1) * board.width + col + 1) == offense:
-                        if row - 1 >= 0 and col - 1 >= 0 and row + 2 < board.height and col + 2 < board.width and \
+                        if row - 1 >= 0 and col - 1 >= 0 and row + 4 < board.height and col + 4 < board.width and \
                             board.states.get((row - 1) * board.width + col - 1) == defense and \
                             board.states.get((row + 2) * board.width + col + 2) is None:
                             closed_two_in_a_row.append((row + 2, col + 2))
-                        elif (row - 1 < 0 or col - 1 < 0) and row + 2 < board.height and col + 2 < board.width and \
+                        elif (row - 1 < 0 or col - 1 < 0) and row + 4 < board.height and col + 4 < board.width and \
                             board.states.get((row + 2) * board.width + col + 2) is None:
                             closed_two_in_a_row.append((row + 2, col + 2))
-                        elif row - 1 >= 0 and col - 1 >= 0 and row + 2 < board.height and col + 2 < board.width and \
+                        elif row - 3 >= 0 and col - 3 >= 0 and row + 2 < board.height and col + 2 < board.width and \
                             board.states.get((row - 1) * board.width + col - 1) is None and \
                             board.states.get((row + 2) * board.width + col + 2) == defense:
                             closed_two_in_a_row.append((row - 1, col - 1))
-                        elif row - 1 >= 0 and col - 1 >= 0 and (row + 2 >= board.height or col + 2 >= board.width) and \
+                        elif row - 3 >= 0 and col - 3 >= 0 and (row + 2 >= board.height or col + 2 >= board.width) and \
                             board.states.get((row - 1) * board.width + col - 1) is None:
                             closed_two_in_a_row.append((row - 1, col - 1))
                         elif row - 1 >= 0 and col - 1 >= 0 and row + 2 < board.height and col + 2 < board.width and \
@@ -597,18 +597,18 @@ def find_threats(board, defense):
                 # Down-left
                 if row + 1 < board.height and col - 1 >= 0:
                     if board.states.get((row + 1) * board.width + col - 1) == offense:
-                        if row - 1 >= 0 and col + 1 < board.width and row + 2 < board.height and col - 2 >= 0 and \
+                        if row - 1 >= 0 and col + 1 < board.width and row + 4 < board.height and col - 4 >= 0 and \
                             board.states.get((row - 1) * board.width + col + 1) == defense and \
                             board.states.get((row + 2) * board.width + col - 2) is None:
                             closed_two_in_a_row.append((row + 2, col - 2))
-                        elif (row - 1 < 0 or col + 1 >= board.width) and row + 2 < board.height and col - 2 >= 0 and \
+                        elif (row - 1 < 0 or col + 1 >= board.width) and row + 4 < board.height and col - 4 >= 0 and \
                             board.states.get((row + 2) * board.width + col - 2) is None:
                             closed_two_in_a_row.append((row + 2, col - 2))
-                        elif row - 1 >= 0 and col + 1 < board.width and row + 2 < board.height and col - 2 >= 0 and \
+                        elif row - 3 >= 0 and col + 3 < board.width and row + 2 < board.height and col - 2 >= 0 and \
                             board.states.get((row - 1) * board.width + col + 1) is None and \
                             board.states.get((row + 2) * board.width + col - 2) == defense:
                             closed_two_in_a_row.append((row - 1, col + 1))
-                        elif row - 1 >= 0 and col + 1 < board.width and (row + 2 >= board.height or col - 2 < 0) and \
+                        elif row - 3 >= 0 and col + 3 < board.width and (row + 2 >= board.height or col - 2 < 0) and \
                             board.states.get((row - 1) * board.width + col + 1) is None:
                             closed_two_in_a_row.append((row - 1, col + 1))
                         elif row - 1 >= 0 and col + 1 < board.width and row + 2 < board.height and col - 2 >= 0 and \
@@ -621,21 +621,21 @@ def find_threats(board, defense):
                 if col + 2 < board.width:
                     if board.states.get(row * board.width + col + 1) is None and \
                        board.states.get(row * board.width + col + 2) == offense:
-                        if col - 1 >= 0 and col + 3 < board.width and \
+                        if col - 1 >= 0 and col + 4 < board.width and \
                             board.states.get(row * board.width + col - 1) == defense and \
                             board.states.get(row * board.width + col + 3) is None:
                             closed_broken_two.append((row, col + 1))
                             closed_broken_two.append((row, col + 3))
-                        elif col - 1 < 0 and col + 3 < board.width and \
+                        elif col - 1 < 0 and col + 4 < board.width and \
                             board.states.get(row * board.width + col + 3) is None:
                             closed_broken_two.append((row, col + 1))
                             closed_broken_two.append((row, col + 3))
-                        elif col - 1 >= 0 and col + 3 < board.width and \
+                        elif col - 2 >= 0 and col + 3 < board.width and \
                             board.states.get(row * board.width + col - 1) is None and \
                             board.states.get(row * board.width + col + 3) == defense:
                             closed_broken_two.append((row, col + 1))
                             closed_broken_two.append((row, col - 1))
-                        elif col - 1 >= 0 and col + 3 >= board.width and \
+                        elif col - 2 >= 0 and col + 3 >= board.width and \
                             board.states.get(row * board.width + col - 1) is None:
                             closed_broken_two.append((row, col + 1))
                             closed_broken_two.append((row, col - 1))
@@ -649,21 +649,21 @@ def find_threats(board, defense):
                 if row + 2 < board.height:
                     if board.states.get((row + 1) * board.width + col) is None and \
                        board.states.get((row + 2) * board.width + col) == offense:
-                        if row - 1 >= 0 and row + 3 < board.height and \
+                        if row - 1 >= 0 and row + 4 < board.height and \
                             board.states.get((row - 1) * board.width + col) == defense and \
                             board.states.get((row + 3) * board.width + col) is None:
                             closed_broken_two.append((row + 1, col))
                             closed_broken_two.append((row + 3, col))
-                        elif row - 1 < 0 and row + 3 < board.height and \
+                        elif row - 1 < 0 and row + 4 < board.height and \
                             board.states.get((row + 3) * board.width + col) is None:
                             closed_broken_two.append((row + 1, col))
                             closed_broken_two.append((row + 3, col))
-                        elif row - 1 >= 0 and row + 3 < board.height and \
+                        elif row - 2 >= 0 and row + 3 < board.height and \
                             board.states.get((row - 1) * board.width + col) is None and \
                             board.states.get((row + 3) * board.width + col) == defense:
                             closed_broken_two.append((row + 1, col))
                             closed_broken_two.append((row - 1, col))
-                        elif row - 1 >= 0 and row + 3 >= board.height and \
+                        elif row - 2 >= 0 and row + 3 >= board.height and \
                             board.states.get((row - 1) * board.width + col) is None:
                             closed_broken_two.append((row + 1, col))
                             closed_broken_two.append((row - 1, col))
@@ -678,21 +678,21 @@ def find_threats(board, defense):
                 if col + 2 < board.width and row + 2 < board.height:
                     if board.states.get((row + 1) * board.width + col + 1) is None and \
                        board.states.get((row + 2) * board.width + col + 2) == offense:
-                        if row - 1 >= 0 and col - 1 >= 0 and row + 3 < board.height and col + 3 < board.width and \
+                        if row - 1 >= 0 and col - 1 >= 0 and row + 4 < board.height and col + 4 < board.width and \
                             board.states.get((row - 1) * board.width + col - 1) == defense and \
                             board.states.get((row + 3) * board.width + col + 3) is None:
                             closed_broken_two.append((row + 1, col + 1))
                             closed_broken_two.append((row + 3, col + 3))
-                        elif (row - 1 < 0 or col - 1 < 0) and row + 3 < board.height and col + 3 < board.width and \
+                        elif (row - 1 < 0 or col - 1 < 0) and row + 4 < board.height and col + 4 < board.width and \
                             board.states.get((row + 3) * board.width + col + 3) is None:
                             closed_broken_two.append((row + 1, col + 1))
                             closed_broken_two.append((row + 3, col + 3))
-                        elif row - 1 >= 0 and col - 1 >= 0 and row + 3 < board.height and col + 3 < board.width and \
+                        elif row - 2 >= 0 and col - 2 >= 0 and row + 3 < board.height and col + 3 < board.width and \
                             board.states.get((row - 1) * board.width + col - 1) is None and \
                             board.states.get((row + 3) * board.width + col + 3) == defense:
                             closed_broken_two.append((row + 1, col + 1))
                             closed_broken_two.append((row - 1, col - 1))
-                        elif row - 1 >= 0 and col - 1 >= 0 and (row + 3 >= board.height or col + 3 >= board.width) and \
+                        elif row - 2 >= 0 and col - 2 >= 0 and (row + 3 >= board.height or col + 3 >= board.width) and \
                             board.states.get((row - 1) * board.width + col - 1) is None:
                             closed_broken_two.append((row + 1, col + 1))
                             closed_broken_two.append((row - 1, col - 1))
@@ -707,21 +707,21 @@ def find_threats(board, defense):
                 if col - 2 >= 0 and row + 2 < board.height:
                     if board.states.get((row + 1) * board.width + col - 1) is None and \
                        board.states.get((row + 2) * board.width + col - 2) == offense:
-                        if row - 1 >= 0 and col + 1 < board.width and row + 3 < board.height and col - 3 >= 0 and \
+                        if row - 1 >= 0 and col + 1 < board.width and row + 4 < board.height and col - 4 >= 0 and \
                             board.states.get((row - 1) * board.width + col + 1) == defense and \
                             board.states.get((row + 3) * board.width + col - 3) is None:
                             closed_broken_two.append((row + 1, col - 1))
                             closed_broken_two.append((row + 3, col - 3))
-                        elif (row - 1 < 0 or col + 1 >= board.width) and row + 3 < board.height and col - 3 >= 0 and \
+                        elif (row - 1 < 0 or col + 1 >= board.width) and row + 4 < board.height and col - 4 >= 0 and \
                             board.states.get((row + 3) * board.width + col - 3) is None:
                             closed_broken_two.append((row + 1, col - 1))
                             closed_broken_two.append((row + 3, col - 3))
-                        elif row - 1 >= 0 and col + 1 < board.width and row + 3 < board.height and col - 3 >= 0 and \
+                        elif row - 2 >= 0 and col + 2 < board.width and row + 3 < board.height and col - 3 >= 0 and \
                             board.states.get((row - 1) * board.width + col + 1) is None and \
                             board.states.get((row + 3) * board.width + col - 3) == defense:
                             closed_broken_two.append((row + 1, col - 1))
                             closed_broken_two.append((row - 1, col + 1))
-                        elif row - 1 >= 0 and col + 1 < board.width and (row + 3 >= board.height or col - 3 < 0) and \
+                        elif row - 2 >= 0 and col + 2 < board.width and (row + 3 >= board.height or col - 3 < 0) and \
                             board.states.get((row - 1) * board.width + col + 1) is None:
                             closed_broken_two.append((row + 1, col - 1))
                             closed_broken_two.append((row - 1, col + 1))
