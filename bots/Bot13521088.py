@@ -68,16 +68,19 @@ class Bot13521088(object):
 
             x,y ditentukan secara greedy. Kembalian adalah sebuah string "x,y"
         """
-        defense = assign_val(board, 1)
+        #first move
+        if(len(board.availables) == board.width*board.height):
+            return f"4,4"
+        
+        defense = assign_val(board, self.player)
         defense_maxval = max(defense.values())
         defense_maxval_list = [k for k, v in defense.items() if v == defense_maxval]
     
-        offense = assign_val(board, 2)
+        offense = assign_val(board, 3 - self.player)
         offense_maxval = max(offense.values())
         offense_maxval_list = [k for k, v in offense.items() if v == offense_maxval]
         
         # print(defense_maxval, offense_maxval)
-        # print(defense,"\n", offense)
         if defense_maxval > offense_maxval:
             idx = len(defense_maxval_list)//2
             (x, y) = defense_maxval_list[idx]
